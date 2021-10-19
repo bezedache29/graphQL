@@ -1,0 +1,29 @@
+# Custom Types
+
+type User {
+    # ! Permet de dire que le champ est obligatoire
+    id: ID!
+    name: String!
+    email: String!
+    age: Int
+}
+
+
+# Query
+
+type Query {
+    hello: String
+    # Renvoie les users avec au moins un User obligatoire, et qui n'est pas vide
+    users: [User!]!
+    # Renvoie un User qui n'est pas vide, avec un paramètre ID obligatoire
+    user(id: ID!): User!
+}
+
+
+# Mutation
+
+type Mutation {
+    # createUser(id: ID!, name: String!, email: String! age: Int): User!
+    createUser(id: ID!, name: String!, email: String! age: Int): User
+    deleteUser(id: ID!): Boolean!
+}
